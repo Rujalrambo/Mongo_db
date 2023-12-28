@@ -1,0 +1,88 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "classNumber": 0,
+  "Name":"Akash Bhairab",
+  "ImageLink":"",
+  "LocationCoordinate": [,],
+  "ConstructionDate": 1998,
+  "ConstructedBy":"Name",
+  "ArchitectureStyle":"Name",
+  "MainDeity":"Name",
+  "Description":"Name",
+  "Ticket":"Name",
+  "Restriction":"Name",
+  "TimeOpen":22,
+  "TimeClose":22,
+  "Extras":"Name"
+}
+
+uri: mongodb+srv://rujalshrsth:<password>@cluster0.7ra0dql.mongodb.net/?retryWrites=true&w=majority
+API: LvphA3LwekKCCQFQ0NaX18p02mFhve2mjLJrwvFMxodTLPzOwYKpdT8Bjhxw2Sah
+netstat -ano | findStr "3000"
+taskkill /F /PID PID
+/-----------main-------------\
+
+$uri = "https://ap-south-1.aws.data.mongodb-api.com/app/data-datoh/endpoint/data/v1/action/findOne"
+
+$headers = @{
+    "Content-Type" = "application/ejson"
+    "Accept" = "application/json"
+    "apiKey" = "LvphA3LwekKCCQFQ0NaX18p02mFhve2mjLJrwvFMxodTLPzOwYKpdT8Bjhxw2Sah"
+}
+
+$body = @{
+    "dataSource" = "Cluster0"
+    "database" = "kathmandu"
+    "collection" = "sites"
+    "filter" = @{
+        "ClassNumber" = 3
+    }
+} | ConvertTo-Json
+
+$response = Invoke-RestMethod -Uri $uri -Method Post -Headers $headers -Body $body
+
+$response
+
+
+
+
+
+
+
+
+
+
+
+
+curl -s "https://ap-south-1.aws.data.mongodb-api.com/app/data-datoh/endpoint/data/v1/action/getOne" \
+  -X GET \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "apiKey: LvphA3LwekKCCQFQ0NaX18p02mFhve2mjLJrwvFMxodTLPzOwYKpdT8Bjhxw2Sah\
+  -d '{
+    "dataSource": "Cluster0",
+    "database": "kathmandu",
+    "collection": "sites",
+    "filter": {
+      "ClassNumber": 3
+      }
+    }
+  }'
+curl -s "https://ap-south-1.aws.data.mongodb-api.com/app/data-datoh/endpoint/data/v1/action/findOne" \
+  -X GET \
+  -H "Content-Type: application/ejson" \
+  -H "Accept: application/json" \
+  -H "apiKey: LvphA3LwekKCCQFQ0NaX18p02mFhve2mjLJrwvFMxodTLPzOwYKpdT8Bjhxw2Sah" \
+  -d '{
+    "dataSource": "Cluster0",
+    "database": "kathmandu",
+    "collection": "sites",
+    "filter": {
+      ClassNumber: 3
+    }
+  }'
+
+
+
